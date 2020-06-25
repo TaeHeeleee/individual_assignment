@@ -1,0 +1,37 @@
+# 인공지능과 기계학습 6주차 과제-1
+
+# 실습1: 사용자로부터 두 개의 정수와 연산자를 받아서 정수의 합, 정수의 차, 정수의 곱, 정수의 나누기, 나누기, 나머지를 계산하여
+#       화면에 출력하는 프로그램을 작성하라. (if ~ elif ~ else 문을 사용)
+
+num_1 = int(input('첫 번째 정수: '))
+num_2 = int(input('두 번째 정수: '))
+operator = str(input('연산자: '))
+
+# num_1과 num_2를 입력한 operator로 계산
+if operator == '+' or operator == '*' or operator == '/' or operator == '//' or operator == '%':
+    
+    if operator == '+': # 덧셈
+        answer = num_1 + num_2
+    elif operator == '*': # 곱셈
+        answer = num_1 * num_2
+    elif operator == '/': # 나눗셈
+        answer = num_1 / num_2
+    elif operator == '//': # 몫 구하기
+        answer = num_1 // num_2
+    elif operator == '%': # 나머지 구하기
+        answer = num_1 % num_2
+        
+    print(str(num_1) + ' ' + operator + ' ' + str(num_2) + ' = ', answer)
+    
+# 뺄셈 (값의 차이가 모두 양수로 나오도록 if문을 중첩으로 사용함)
+elif operator == '-':
+    if num_1 >= num_2:
+        answer = num_1 - num_2
+        print(str(num_1) + ' ' + operator + ' ' + str(num_2) + ' = ', answer)
+    else:
+        answer = num_2 - num_1
+        print(str(num_2) + ' ' + operator + ' ' + str(num_1) + ' = ', answer)
+
+# 없는 연산자를 입력한 경우 알림 메세지 출력
+else:
+    print('올바른 연산자를 입력하시오.')
