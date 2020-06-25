@@ -1,0 +1,44 @@
+# 인공지능과 기계학습 6주차 과제-2
+
+# 사용자로부터 학년 반, 국어, 영어, 수학, 물리 점수를 입력 받아 총점, 평균, 학점을 계산하여 화면에 출력하는 프로그램을 작성하라.
+# - if ~ elif ~ else 문을 사용
+
+for i in range(5):
+    # 번호, 과목 점수 입력
+    number = input('번호: ')
+
+    score_lan = int(input('국어 점수: '))
+    score_eng = int(input('영어 점수: '))
+    score_math = int(input('수학 점수: '))
+    score_phy = int(input('물리 점수: '))
+
+    list = [score_lan, score_eng, score_math, score_phy]
+
+    # 총점, 평균, 등급
+    total = sum(list)
+    average = total / len(list)
+    
+    if average >= 90:    
+        grade = 'A'
+    elif average >= 80:
+        grade = 'B'
+    elif average >=70:
+        grade = 'C'
+    elif average >= 60:
+        grade = 'D'
+    else:
+        grade = 'F'
+        
+    # 출력
+    i = 0
+    while i < 120:
+        print('=', end = '')
+        i += 1
+        if i == 60:
+            list_a = ['번호', '\t', '국어', '\t', '영어', '\t', '수학', '\t'
+                      , '물리', '\t', '총점', '\t', '평균', '\t', '학점']
+            print('\n', *list_a)
+        elif i == 120:
+            list_b = [number, '\t', score_lan, '\t', score_eng, '\t', score_math
+                      , '\t', score_phy, '\t', total, '\t', average, '\t', grade]
+            print('\n', *list_b)
